@@ -1,2 +1,2 @@
 # GetAdsDatawithoutDevAPI
-With no access to Ads DevAPI Keys these scripts make it possible to bypass this constraint and get the data pragrammatically. 
+Having no access to Ads DevAPI tokens these scripts make it possible to bypass this constraint and get the data programmatically. 
