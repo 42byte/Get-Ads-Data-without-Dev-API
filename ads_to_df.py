@@ -16,8 +16,8 @@ SPREADSHEET_ID = '<<<<SPREADSHEET_ID_HERE>>>>>>>'
 RANGE_NAME = 'Campaign!A1:E1000'
 save_to = "<<<<<<<DIRECTORY>>>>>"
 
-def ads_to_csv():
-    """Loads Data from a specified Google Spreadsheet and saves it to a csv
+def ads_to_df():
+    """Loads Data from a specified Google Spreadsheet (and saves it to a csv)
     """
     creds = None
     # The file token.pickle stores the user's access and refresh tokens, and is
@@ -51,7 +51,7 @@ def ads_to_csv():
     else:
 	headers = values.pop(0)
     	df = pd.DataFrame(values, columns = headers)
-	df.to_csv(save_to + "ads_data.csv")
+	#df.to_csv(save_to + "ads_data.csv")
 		
 if __name__ == '__main__':
-    ads_to_csv()
+    ads_to_df()
