@@ -1,0 +1,32 @@
+/* Put Google Ads Data in Google Spreadsheet
+ * -----------------------------------------
+ * Script by Optmyzr.com, customized by Manuel
+ */
+
+/* This script is to be put into Ads Scripts. It will push the Report data into the specified spreadsheet. 
+
+var QUERIES = [{'query' : 'SELECT CampaignName, Day, Clicks, Impressions, Cost ' +
+    			'FROM   CAMPAIGN_PERFORMANCE_REPORT ' +
+    			'WHERE  Impressions > 0 ' +
+    			'DURING LAST_30_DAYS',
+                'spreadsheetUrl' : '<<<<PUTURLHERE>>>>>',
+                'tabName' : 'Campaigns',
+                'reportVersion' : 'v20180810'
+               }
+              ];
+
+
+function main() {
+  for(var i in QUERIES) {
+    var queryObject = QUERIES[i];
+    var query = queryObject.query;
+    var spreadsheetUrl = queryObject.spreadsheetUrl;
+    var tabName = queryObject.tabName;
+    var reportVersion = queryObject.reportVersion;
+    //Logger.log(spreadsheetUrl + " " + query);
+    var spreadsheet = SpreadsheetApp.openByUrl(spreadsheetUrl);
+    var sheet = spreadsheet.getSheetByName(tabName);
+    var report = AdWordsApp.report(query, {apiVersion: reportVersion});
+    report.exportToSheet(sheet);
+  }
+}
