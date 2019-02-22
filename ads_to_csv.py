@@ -49,9 +49,9 @@ def ads_to_csv():
     if not values:
         print('No data found.')
     else:
-		headers = values.pop(0)
-    df = pd.DataFrame(values, columns = headers)
-		df.to_csv(save_to + "ads_data.csv")
+	headers = values.pop(0)
+    	df = pd.DataFrame(values, columns = headers)
+	df.to_csv(save_to + "ads_data.csv")
 		
 if __name__ == '__main__':
     ads_to_csv()
